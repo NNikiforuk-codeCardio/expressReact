@@ -1,0 +1,215 @@
+$primary-color: rgb(189, 80, 196);
+$secondary-color: rgb(219, 221, 94);
+$font-size-md: 22px;
+$font-size-lg: 26px;
+$font-size-xl: 18px;
+
+@mixin centerThis() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.library {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+
+	.exit {
+		font-size: 22px;
+		color: grey;
+		cursor: pointer;
+		grid-column: 1 / -1;
+		justify-self: start;
+		margin-top: -10px;
+		text-decoration: none;
+	}
+
+	.book {
+		margin: 10px;
+		flex-direction: column;
+		@include centerThis;
+
+		.title {
+			font-weight: bold;
+			color: $primary-color;
+		}
+
+		.isbn {
+			color: grey;
+			padding: 5px;
+		}
+
+		.buttons {
+			display: flex;
+			align-items: center;
+
+			.deleteBtn,
+			.editBtn {
+				background-color: $secondary-color;
+				color: grey;
+				border: none;
+				border-radius: 15px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			.editBtn {
+				margin-left: 2px;
+			}
+		}
+	}
+
+	.editForm {
+		background-color: rgba($color: grey, $alpha: 0.9);
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+
+		.form {
+			z-index: 1;
+			flex-direction: column;
+			@include centerThis;
+			height: 100vh;
+
+			.label {
+				color: $secondary-color;
+				font-weight: bold;
+				padding: 10px;
+			}
+
+			.input {
+				border-radius: 15px;
+				border: 1px solid grey;
+				padding: 10px 20px;
+				color: grey;
+			}
+
+			.buttons {
+				display: flex;
+				align-items: center;
+
+				.submitBtn,
+				.exitBtn {
+					margin-top: 10px;
+					padding: 10px 20px;
+					font-size: 14px;
+					font-weight: bold;
+					border-radius: 15px;
+					border: none;
+					cursor: pointer;
+				}
+				.submitBtn {
+					background-color: $primary-color;
+					color: $secondary-color;
+				}
+
+				.exitBtn {
+					background-color: $secondary-color;
+					color: $primary-color;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 414px) {
+	.library {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding: 10px;
+
+		.exit {
+			font-size: 32px;
+			padding: 10px 20px;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.library {
+		grid-template-columns: repeat(3, 1fr);
+
+		.exit {
+			font-size: 42px;
+		}
+
+		.book {
+			font-size: $font-size-lg;
+			min-height: 200px;
+
+			.isbn {
+				padding: 10px;
+			}
+
+			.buttons {
+				margin-top: 10px;
+
+				.deleteBtn,
+				.editBtn {
+					padding: 7.5px 15px;
+					font-size: $font-size-md;
+				}
+
+				.editBtn {
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.editForm {
+			.form {
+				.label,
+				.input {
+					font-size: $font-size-lg;
+				}
+
+				.buttons {
+					.submitBtn,
+					.exitBtn {
+						font-size: $font-size-md;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1050px) {
+	.library {
+		grid-template-columns: repeat(5, 1fr);
+
+		.book {
+			font-size: $font-size-xl;
+			margin-bottom: 50px;
+
+			.buttons {
+				.deleteBtn,
+				.editBtn {
+					padding: 7.5px 15px;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.editForm {
+			.form {
+				.label,
+				.input {
+					font-size: $font-size-xl;
+				}
+
+				.buttons {
+					.submitBtn,
+					.exitBtn {
+						font-size: $font-size-xl;
+					}
+				}
+			}
+		}
+	}
+}

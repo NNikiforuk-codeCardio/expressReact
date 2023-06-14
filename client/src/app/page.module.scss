@@ -1,0 +1,161 @@
+$primary-color: rgb(189, 80, 196);
+$secondary-color: rgb(219, 221, 94);
+$font-size-md: 22px;
+$font-size-lg: 26px;
+$font-size-xl: 18px;
+
+@mixin centerThis() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.page {
+	@include centerThis;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+
+	.message {
+		position: absolute;
+		top: 0;
+		background-color: rgb(209, 241, 209);
+		width: 100vw;
+		text-align: center;
+		padding: 10px 20px;
+		@include centerThis;
+
+		.icon,
+		.alert {
+			color: green;
+		}
+
+		.icon {
+			margin-right: 5px;
+		}
+	}
+
+	.label,
+	.input {
+		color: grey;
+	}
+
+	.label {
+		padding: 5px;
+	}
+
+	.input {
+		border-radius: 15px;
+		border: 1px solid grey;
+		padding: 10px 20px;
+	}
+
+	.buttons {
+		margin-top: 25px;
+		display: flex;
+		flex-direction: column;
+
+		.submitBtn {
+			background-color: $primary-color;
+			color: $secondary-color;
+		}
+
+		.link {
+			background-color: $secondary-color;
+			color: $primary-color;
+			text-decoration: none;
+		}
+
+		.submitBtn,
+		.link {
+			margin: 5px;
+			padding: 10px 20px;
+			font-size: 14px;
+			font-weight: bold;
+			border-radius: 15px;
+			border: none;
+			cursor: pointer;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page {
+		.message {
+			padding: 20px 40px;
+
+			.icon,
+			.alert {
+				font-size: $font-size-md;
+			}
+
+			.icon {
+				margin-right: 15px;
+			}
+		}
+
+		.label,
+		.input {
+			font-size: $font-size-md;
+		}
+
+		.buttons {
+			flex-direction: row;
+
+			.submitBtn,
+			.link {
+				font-size: $font-size-md;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.page {
+		.message {
+
+			.icon,
+			.alert {
+				font-size: $font-size-lg;
+			}
+		}
+
+		.label,
+		.input {
+			font-size: $font-size-lg;
+		}
+
+		.buttons {
+
+			.submitBtn,
+			.link {
+				font-size: $font-size-lg;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1050px) {
+	.page {
+		.message {
+
+			.icon,
+			.alert {
+				font-size: $font-size-xl;
+			}
+		}
+
+		.label,
+		.input {
+			font-size: $font-size-xl;
+		}
+
+		.buttons {
+
+			.submitBtn,
+			.link {
+				font-size: $font-size-xl;
+			}
+		}
+	}
+}
